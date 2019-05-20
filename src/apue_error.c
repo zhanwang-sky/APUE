@@ -11,8 +11,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "apue_macros.h"
 #include "_apue_types.h"
+#include "_apue_macros.h"
 
 /*
  * Print a message and return to caller.
@@ -20,11 +20,11 @@
  */
 static void
 err_doit(bool errnoflag, int error, const char *fmt, va_list ap) {
-    char buf[APUE_MSG_LEN];
+    char buf[_APUE_MSG_LEN];
 
-    vsnprintf(buf, APUE_MSG_LEN - 1, fmt, ap);
+    vsnprintf(buf, _APUE_MSG_LEN - 1, fmt, ap);
     if (errnoflag) {
-        snprintf(buf + strlen(buf), APUE_MSG_LEN - strlen(buf) - 1,
+        snprintf(buf + strlen(buf), _APUE_MSG_LEN - strlen(buf) - 1,
                  ": %s", strerror(error));
     }
     strcat(buf, "\n");
@@ -44,7 +44,7 @@ apue_err_dump(const char *fmt, ...) {
     va_list ap;
 
     va_start(ap, fmt);
-    err_doit(TRUE, errno, fmt, ap);
+    err_doit(true, errno, fmt, ap);
     va_end(ap);
 
     abort(); /* dump core and terminate */
@@ -61,7 +61,7 @@ apue_err_sys(const char *fmt, ...) {
     va_list ap;
 
     va_start(ap, fmt);
-    err_doit(TRUE, errno, fmt, ap);
+    err_doit(true, errno, fmt, ap);
     va_end(ap);
 
     exit(1);
@@ -77,7 +77,7 @@ apue_err_exit(int error, const char *fmt, ...) {
     va_list ap;
 
     va_start(ap, fmt);
-    err_doit(TRUE, error, fmt, ap);
+    err_doit(true, error, fmt, ap);
     va_end(ap);
 
     exit(1);
@@ -92,7 +92,7 @@ apue_err_quit(const char *fmt, ...) {
     va_list ap;
 
     va_start(ap, fmt);
-    err_doit(FALSE, 0, fmt, ap);
+    err_doit(false, 0, fmt, ap);
     va_end(ap);
 
     exit(1);
@@ -107,7 +107,7 @@ apue_err_ret(const char *fmt, ...) {
     va_list ap;
 
     va_start(ap, fmt);
-    err_doit(TRUE, errno, fmt, ap);
+    err_doit(true, errno, fmt, ap);
     va_end(ap);
 
     return;
@@ -123,7 +123,7 @@ apue_err_cont(int error, const char *fmt, ...) {
     va_list ap;
 
     va_start(ap, fmt);
-    err_doit(TRUE, error, fmt, ap);
+    err_doit(true, error, fmt, ap);
     va_end(ap);
 
     return;
@@ -138,7 +138,7 @@ apue_err_msg(const char *fmt, ...) {
     va_list ap;
 
     va_start(ap, fmt);
-    err_doit(FALSE, 0, fmt, ap);
+    err_doit(false, 0, fmt, ap);
     va_end(ap);
 
     return;

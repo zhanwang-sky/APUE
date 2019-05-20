@@ -5,8 +5,8 @@
  *      Author: Ji Chen
  */
 
-#ifndef APUE_ERROR_H
-#define APUE_ERROR_H
+#ifndef __APUE_ERROR_H
+#define __APUE_ERROR_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -67,4 +67,4 @@ apue_err_msg(const char *fmt, ...);
 }
 #endif
 
-#endif /* not APUE_ERROR_H */
+#endif /* __APUE_ERROR_H */

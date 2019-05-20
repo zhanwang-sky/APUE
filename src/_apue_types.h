@@ -5,8 +5,8 @@
  *      Author: Ji Chen
  */
 
-#ifndef _APUE_TYPES_H
-#define _APUE_TYPES_H
+#ifndef __APUE_TYPES_H
+#define __APUE_TYPES_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -14,12 +14,12 @@ extern "C" {
 
 #ifndef __cplusplus
 
-#ifdef TRUE
-#undef TRUE
+#ifdef true
+#undef true
 #endif
 
-#ifdef FALSE
-#undef FALSE
+#ifdef false
+#undef false
 #endif
 
 #ifdef bool
@@ -30,11 +30,11 @@ extern "C" {
  * APUE boolean type.
  */
 typedef enum {
-    /* FALSE boolean value */
-    FALSE = 0,
+    /* false boolean value */
+    false = 0,
 
-    /* TRUE boolean value */
-    TRUE = 1
+    /* true boolean value */
+    true = 1
 } bool;
 
 #endif /* not __cplusplus */
@@ -43,4 +43,4 @@ typedef enum {
 }
 #endif
 
-#endif /* not _APUE_TYPES_H */
+#endif /* __APUE_TYPES_H */

@@ -5,11 +5,10 @@
  *      Author: Ji Chen
  */
 
-#ifndef APUE_H
-#define APUE_H
+#ifndef __APUE_H
+#define __APUE_H
 
-#include "apue/apue_macros.h"
-#include "apue/apue_error.h"
+#include "apue_error.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -25,4 +24,4 @@ apue_get_version(void);
 }
 #endif
 
-#endif /* not APUE_H */
+#endif /* __APUE_H */
