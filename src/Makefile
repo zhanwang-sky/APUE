@@ -1,6 +1,6 @@
 CC := gcc
 AR := ar
-CFLAGS := -Wall -Wextra
+CFLAGS := -std=c11 -Wall -Wextra -Wpedantic -g
 TARGET := libapue.a
 
 $(TARGET): apue.o apue_error.o
